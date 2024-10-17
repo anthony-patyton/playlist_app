@@ -11,9 +11,14 @@ const BillBoards = ({ billboards }) => {
             {bill.title}
             {" "}
             <a href={url + bill.id}>show</a>
+            {" "}
+            <a href={url + bill.id + "/edit"}>edit</a>
+            {" "}
+            <button data-method="delete">delete</button>
             </li>
           ))}
         </ul>
+        <a href={url + "new"}>Create a new Bill board</a>
 			</div>
 	)
 };

@@ -9,9 +9,14 @@ class BillBoardsController < ApplicationController
     @billboard = BillBoard.find(params[:id])
     render component: 'BillBoard', props: { billboard: @billboard }
   end
+
+  def new
+    @billboard = BillBoard.new
+    render component: 'BillBoardNew', props: { billboard: @billboard }
+  end
  
   def create 
-    @billboard = Billboard.new(bill_board_params)
+    @billboard = BillBoard.new(bill_board_params)
 
     if @billboard.save
       redirect_to bill_boards_path
