@@ -1,2 +1,13 @@
-<h1>BillBoards#index</h1>
-<p>Find me in app/views/bill_boards/index.html.erb</p>
+<h1>All billboards</h1>
+<% @billboards.each do |billboard| %>
+  <%= billboard.title %>
+  <ul>
+  <li><%= link_to 'Show', bill_board_path(billboard) %></li>
+  <li><%= link_to "Edit", edit_bill_board_path(billboard) %></li>
+  <li><%= link_to "Destroy", bill_board_path(billboard.id), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>%>
+<% end %>
+<%= link_to 'New Billbaord', new_bill_board_path %>

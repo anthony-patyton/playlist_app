@@ -1,2 +1,5 @@
-<h1>BillBoards#show</h1>
-<p>Find me in app/views/bill_boards/show.html.erb</p>
+<div>
+  <%= "#{@billboard.id}" %>
+</div>
+<%= @billboard.title %>
+<%= link_to 'Back', bill_boards_path %>

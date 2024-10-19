@@ -11,7 +11,7 @@ const BillBoardNew = ({ billboard }) => {
           defaultValue={defaultTitle}
           name= 'billboard[title]'
         />
-        <button aciton=""type="submit">Add BillBoard</button>
+        <button type="submit">Add BillBoard</button>
       </form>
     </div>
   )
