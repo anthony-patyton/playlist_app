@@ -1,44 +1,44 @@
 class SongsController < ApplicationController
-  before_action :set_artist, :set_props
+  before_action :set_artist
   before_action :set_song, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @songs = Song.all
-    if @songs.count == 0
-      render component: "NoSongs", props: @props
+    @songs = @artist.songs
+    if @artist.songs.count == 0
+      render component: "NoSongs", props: { artist: @artist }
     else
-      render component: "Songs", props: @props
+      render component: "Songs", props: { artist: @artist, songs: @songs }
     end
   end
 
   def show
-    render comoponent: "Song", props: @props
+    render component: "Song", props: { artist: @artist, song: @song }
   end
 
   def new
     @song = @artist.songs.new
-    render component: "NewSong", props: @props
+    render component: "NewSong", props: { artist: @artist, song: @song }
   end
 
   def create
     @song = @artist.songs.new(song_params)
 
     if @song.save
-      redirect_to [ @artist, @song ]
+      redirect_to [ @artist, @song ] # redirect_to
     else
-      render component: "NewSong", props: @props
+      render component: "NewSong", props: { artist: @artist, song: @song }
     end
   end
 
   def edit
-    render component: "EditSong", props: @props
+    render component: "EditSong", props: { artist: @artist, song: @song }
   end
 
   def update
     if @song.update(song_params)
       redirect_to [ @artist, @song ]
     else
-      render component: "EditSong", props: @props
+      render component: "EditSong", props: { artist: @artist, song: @song }
     end
   end
 
@@ -48,15 +48,6 @@ class SongsController < ApplicationController
   end
 
   private
-
-    def set_props
-      if Song.count == 0
-        @props = { artist: @artist, songs: @songs }
-      else
-        @props = { artist: @artist, song: @song }
-      end
-    end
-
 
     def set_artist
       @artist = Artist.find(params[:artist_id])

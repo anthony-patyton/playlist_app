@@ -1,7 +1,7 @@
 
-const Artist = ( props ) => {
-  const { title, id } = props.billboard;
-  const { first_name, last_name } = props.artist;
+const Artist = ({ billboard, artist }) => {
+  const { title, id } = billboard;
+  const { first_name, last_name } = artist;
   const fullName = first_name + " " + last_name;
   return(
     <div>
@@ -11,7 +11,7 @@ const Artist = ( props ) => {
       <br />
       <a href = {`/bill_boards/${id}`}>Back to {title} billboard</a>
       <br />
-      <a href = {`/artists/${props.artist.id}/songs`}>{ fullName } Songs</a>
+      <a href = {`/artists/${artist.id}/songs`}>{ fullName } Songs</a>
     </div>
   )
 };
