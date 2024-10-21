@@ -1,7 +1,6 @@
-
-const ArtistNew = ({ billboard, artist }) => {
-  const { id } = billboard;
-  const { first_name, last_name, errors } = artist;
+const ArtistNew = ( props ) => {
+  const { id } = props.billboard;
+  const { first_name, last_name, errors } = props.artist;
   const defaultFirstName = first_name ? first_name : '';
   const defaultLastName = last_name ? last_name : '';
   return(

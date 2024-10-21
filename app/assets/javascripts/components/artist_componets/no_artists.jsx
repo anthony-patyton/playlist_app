@@ -1,6 +1,6 @@
 
-const ArtistsNone = ({ billboard }) => {
-  const { title, id } = billboard
+const ArtistsNone = ( props ) => {
+  const { title, id } = props.billboard;
   return(
     <div>
       <h1>There are no artists for {title}</h1>

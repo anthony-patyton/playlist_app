@@ -6,7 +6,7 @@ const handleDeleteArtist = ( id, artistId ) => {
   location.reload();
 };
 
-const Artists = ({ billboard, artists }) => {
+const Artists = ({ billboard, artists}) => {
   const { title, id } = billboard;
   return(
     <div>
