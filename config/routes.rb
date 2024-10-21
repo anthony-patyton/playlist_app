@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
- resources :bill_boards do
-    resources :artist do
-      resources :song
-    end
+  # BETTER!!! CODE, don't nest them more than 1
+  resources :bill_boards do
+    resources :artists
+  end
+
+  resources :artists do
+    resources :songs
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
