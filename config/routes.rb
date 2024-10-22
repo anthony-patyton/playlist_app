@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root "static_pages#home"
+
+  get "/about", to: "static_pages#about"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # BETTER!!! CODE, don't nest them more than 1
   resources :bill_boards do

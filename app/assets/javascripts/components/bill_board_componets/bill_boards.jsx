@@ -1,5 +1,5 @@
 
-const url = "http://localhost:3000/bill_boards/";
+const billBoardUrl = "http://localhost:3000/bill_boards/";
 
 const handleDelete = ( id ) => {
   fetch(`/bill_boards/${id}`, {
@@ -16,15 +16,15 @@ const BillBoards = ({ billboards }) => {
         { billboards.map( bill => (
           <li key={bill.id}>
           {" "}
-          <a href={url + bill.id}>{bill.title}</a>
+          <a href={billBoardUrl + bill.id}>{bill.title}</a>
           {" "}
-          <a href={url + bill.id + "/edit"}>edit</a>
+          <a href={billBoardUrl + bill.id + "/edit"}>edit</a>
           {" "}
           <button onClick={() => handleDelete(bill.id)}>delete</button>
           </li>
         ))}
       </ul>
-      <a href={url + "new"}>Create a new Bill board</a>
+      <a href={billBoardUrl + "new"}>Create a new Bill board</a>
     </div>
 	)
 };
