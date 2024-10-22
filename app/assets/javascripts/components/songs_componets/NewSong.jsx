@@ -8,7 +8,7 @@ const NewSong = ({ artist, song}) => {
       <form action={`/artists/${id}/songs`} method="post">
         <p>Title:</p>
         <input defaultValue={defaultTitle} name="song[title]" type="text" />
-        <button type="submit">Create Contact</button>
+        <button type="submit">Create Song</button>
       </form>
     </div>
   )
